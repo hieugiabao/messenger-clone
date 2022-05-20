@@ -1,5 +1,8 @@
+import Home from "./pages/Home";
+import SignIn from "./pages/SignIn";
+
 function App() {
-  return <h1>Xin chao</h1>;
+  return <Home />;
 }
 
 export default App;
