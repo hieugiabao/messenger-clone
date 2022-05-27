@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import HomeBackground from "../components/HomeBackground";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   const onScroll = (e: Event) => {
     const tag = document.getElementById("nav");
     const signIn = document.getElementById("toD");
@@ -48,6 +51,7 @@ const Home = () => {
       <div className="flex items-center flex-col">
         <button
           id="toD"
+          onClick={() => navigate("/sign-in")}
           className="hidden fixed top-6 right-8 z-10 min-w-[80px] cursor-pointer items-center gap-3 rounded-md bg-primary p-3 text-white transition duration-300 hover:brightness-90 disabled:!cursor-default disabled:!brightness-75"
         >
           <span className="font-medium">Join with us</span>

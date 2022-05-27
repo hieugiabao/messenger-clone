@@ -87,22 +87,9 @@ const HomeBackground = () => {
 
     renderer.render(scene, camera);
   }
-
-  const onWindowResize = () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-  };
-
   useEffect(() => {
-    window.onload = () => {
-      init();
-      animate();
-    };
-    window.addEventListener("resize", onWindowResize, false);
-    return () => {
-      window.removeEventListener("resize", onWindowResize);
-    };
+    init();
+    animate();
   }, []);
 
   return <div id="home-canvas"></div>;
