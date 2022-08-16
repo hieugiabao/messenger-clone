@@ -24,7 +24,7 @@ export const useCollectionQuery = (
         setLoading(false);
       },
       (error) => {
-        console.log(error);
+        console.dir(error);
         setData(null);
         setError(true);
         setLoading(false);

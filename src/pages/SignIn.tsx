@@ -43,19 +43,25 @@ const SignIn = () => {
   }
 
   return (
-    <div>
-      <div className="mx-[5vw] my-5 flex justify-center lg:my-10">
+    <div className="max-h-[700px] overflow-hidden">
+      <div className="mx-[5vw] flex justify-center lg:my-10">
         <div className="w-full max-w-[1200px]">
-          <div className="flex justify-between">
+          <div className="flex justify-between fixed">
             <div className="flex items-center gap-2">
               <img src="/icon.svg" alt="" className="h-8 w-8" />
-              <span className="text-2xl tracking-wide">FireMess</span>
+              <span className="text-2xl tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#62E1FB] via-[#81E3B4] to-[#80E5B0] hover:from-[#80E5B0] hover:to-[#62E1FB]">
+                FireMess
+              </span>
             </div>
           </div>
 
           <div className="flex flex-col-reverse gap-10 md:flex-row md:gap-5 lg:mt-10">
             <div className="flex-1 mb-16">
-              <img src="/illus.svg" alt="as" className="h-auto w-full" />
+              <img
+                src="/illus.svg"
+                alt="as"
+                className="h-auto w-full scale-75"
+              />
             </div>
             <div className="mt-12 flex flex-1 flex-col items-center gap-4 md:items-start lg:mt-24">
               <h1 className="text-center text-4xl font-medium md:text-4xl md:text-left">

@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import HomeBackground from "../components/HomeBackground";
+import { useStore } from "../store";
 
 const Home = () => {
   const navigate = useNavigate();
+  const currentUser = useStore((state) => state.currentUser);
 
   const onScroll = (e: Event) => {
     const tag = document.getElementById("nav");
@@ -51,10 +53,14 @@ const Home = () => {
       <div className="flex items-center flex-col">
         <button
           id="toD"
-          onClick={() => navigate("/sign-in")}
+          onClick={() =>
+            currentUser ? navigate("/chat") : navigate("/sign-in")
+          }
           className="hidden fixed top-6 right-8 z-10 min-w-[80px] cursor-pointer items-center gap-3 rounded-md bg-primary p-3 text-white transition duration-300 hover:brightness-90 disabled:!cursor-default disabled:!brightness-75"
         >
-          <span className="font-medium">Join with us</span>
+          <span className="font-medium">
+            {currentUser ? "Go to chat" : "Join with us"}
+          </span>
         </button>
         <div className="relative h-[100vh]">
           <div
