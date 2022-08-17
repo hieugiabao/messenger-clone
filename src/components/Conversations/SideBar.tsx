@@ -2,7 +2,7 @@ import { signOut } from "firebase/auth";
 import { collection, orderBy, query, where } from "firebase/firestore";
 import React, { useState } from "react";
 import Spin from "react-cssfx-loading/src/Spin";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { DEFAULT_AVATAR, IMAGE_PROXY } from "../../constants";
 import { auth, db } from "../../firebase";
 import { useCollectionQuery } from "../../hooks/useCollectionQuery";
@@ -28,9 +28,17 @@ const SideBar = () => {
     )
   );
 
+  const location = useLocation();
+
   return (
     <>
-      <div className="border-dark-lighten h-screen flex-shrink-0 overflow-x-hidden overflow-y-auto border-r">
+      <div
+        className={`border-dark-lighten h-screen flex-shrink-0 overflow-x-hidden overflow-y-auto border-r ${
+          location.pathname !== "/chat"
+            ? "hidden w-[350px] md:!block"
+            : "w-full md:!w-[350px]"
+        }`}
+      >
         <div className="border-dark-light flex h-20 items-center justify-between border-b px-6">
           <Link to="/" className="flex items-center gap-1 mr-10">
             <img src="/icon.svg" alt="" className="h-8 w-8" />

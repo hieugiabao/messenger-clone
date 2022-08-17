@@ -86,7 +86,7 @@ const Home = () => {
             fill="none"
             preserveAspectRatio="none"
             viewBox="0 0 1680 40"
-            className="absolute w-full z-[1] top-[-36px]"
+            className="absolute w-full z-[1] top-[-32px]"
           >
             <path
               d="M0 40h1680V30S1340 0 840 0 0 30 0 30z"

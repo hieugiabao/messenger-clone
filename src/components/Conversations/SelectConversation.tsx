@@ -34,8 +34,8 @@ const SelectConversation: FC<SelectConversationProps> = ({
       <div className="flex items-stretch gap-2 py-2 px-5">
         <Skeleton className="h-14 w-14 flex-shrink-0 rounded-full" />
         <div className="flex flex-grow flex-col items-start gap-2 py-2">
-          <Skeleton className="w-1/2 flex-grow" />
-          <Skeleton className="w-2/3 flex-grow" />
+          <Skeleton className="w-1/2 flex-grow rounded-md" />
+          <Skeleton className="w-2/3 flex-grow rounded-md" />
         </div>
       </div>
     );

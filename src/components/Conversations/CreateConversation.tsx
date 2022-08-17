@@ -70,7 +70,7 @@ const CreateConversation: FC<CreateConversationProps> = ({ setIsOpened }) => {
       navigate(`/chat/${created.id}`);
     } else {
       setIsOpened(false);
-      navigate(`chat/${querySnapshot.docs[0].id}`);
+      navigate(`/chat/${querySnapshot.docs[0].id}`);
       setIsCreating(false);
     }
   };
