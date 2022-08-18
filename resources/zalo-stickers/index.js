@@ -23,29 +23,35 @@ const { URLSearchParams } = require("url");
 
   result = await Promise.all(
     result.map(async (item) => {
-      const collectionData = (
-        await axios.get("https://stickers.zaloapp.com/cate-stickers", {
-          params: {
-            cid: item.stickerId,
-          },
-        })
-      ).data.value.map((sticker) => {
-        const eid = new URLSearchParams(new URL(sticker.url).search).get("eid");
-        const sprite =
-          eid.length > 3
-            ? `https://zalo-api.zadn.vn/api/emoticon/sprite?eid=${eid}&size=130&checksum=ce5b95009fb86ddc268a233f550f6e48`
-            : `https://zalo-api.zadn.vn/api/emoticon/sticker/webpc?eid=${eid}&size=130&version=3`;
-        return {
-          id: eid,
-          sprite,
-        };
-      });
+      try {
+        const collectionData = (
+          await axios.get("https://stickers.zaloapp.com/cate-stickers", {
+            params: {
+              cid: item.stickerId,
+            },
+          })
+        ).data.value.map((sticker) => {
+          const eid = new URLSearchParams(new URL(sticker.url).search).get(
+            "eid"
+          );
+          const sprite =
+            eid.length > 3
+              ? `https://zalo-api.zadn.vn/api/emoticon/sprite?eid=${eid}&size=130&checksum=ce5b95009fb86ddc268a233f550f6e48`
+              : `https://zalo-api.zadn.vn/api/emoticon/sticker/webpc?eid=${eid}&size=130&version=3`;
+          return {
+            id: eid,
+            sprite,
+          };
+        });
 
-      delete item.stickerId;
-      return {
-        ...item,
-        stickers: collectionData,
-      };
+        delete item.stickerId;
+        return {
+          ...item,
+          stickers: collectionData,
+        };
+      } catch (error) {
+        console.log("Catch error", error.message);
+      }
     })
   );
 
@@ -111,12 +117,12 @@ const { URLSearchParams } = require("url");
   let final = result.map(
     ({ name, thumbnail, icon, stickerId, id, stickers }) => ({
       name,
-      thumbnail: `link-thumbnail`,
-      icon: `link-icon`,
+      thumbnail: `https://cdn.jsdelivr.net/gh/hieugiabao/messenger-clone/resources/zalo-stickers/data/images/thumbnails/${id}.png`,
+      icon: `https://cdn.jsdelivr.net/gh/hieugiabao/messenger-clone/resources/zalo-stickers/data/images/icons/${id}.png`,
       stickerId,
       id,
       stickers: stickers.map(({ id: stickerId }) => {
-        const spriteURL = `sprite-url`;
+        const spriteURL = `https://cdn.jsdelivr.net/gh/hieugiabao/messenger-clone/resources/zalo-stickers/data/images/${id}/${stickerId}.png`;
         return {
           id: stickerId,
           spriteURL,
