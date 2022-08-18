@@ -64,7 +64,7 @@ const ChatHeader: FC<ChatHeaderProps> = ({ conversation }) => {
           )}
 
           {loading ? (
-            <Skeleton className="h-6 w-1/4" />
+            <Skeleton className="h-6 w-1/4 rounded-md" />
           ) : (
             <p>
               {conversation.users.length > 2 && conversation?.group?.groupName

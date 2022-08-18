@@ -3,6 +3,7 @@ import React, { FC, useState } from "react";
 import { useParams } from "react-router-dom";
 import ChatHeader from "../components/Chat/ChatHeader";
 import SideBar from "../components/Conversations/SideBar";
+import InputSection from "../components/Input/InputSection";
 import { db } from "../firebase";
 import { useDocumentQuery } from "../hooks/useDocumentQuery";
 import { useStore } from "../store";
@@ -41,6 +42,7 @@ const Chat: FC = () => {
         ) : (
           <>
             <ChatHeader conversation={conversation} />
+            <InputSection disabled={false} />
           </>
         )}
       </div>
