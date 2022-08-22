@@ -42,6 +42,7 @@ const Chat: FC = () => {
         ) : (
           <>
             <ChatHeader conversation={conversation} />
+            <div className="h-full w-full"></div>
             <InputSection disabled={false} />
           </>
         )}

@@ -51,13 +51,13 @@ export const useLastMessage = (conId: string) => {
         const formattedDate = formatDate(second ? second * 1000 : Date.now());
 
         res =
-          res.length > 30 - formattedDate.length
+          res?.length > 30 - formattedDate.length
             ? `${res.slice(0, 30 - formattedDate.length)}...`
             : res;
 
         const message = `${res} • ${formattedDate}`;
         setData({
-          lastMessageId: snap.docs?.[0].id,
+          lastMessageId: snap.docs?.[0]?.id,
           message,
         });
         setLoading(false);

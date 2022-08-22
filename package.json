@@ -8,6 +8,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emoji-mart/data": "^1.0.5",
+    "@emoji-mart/react": "^1.0.1",
     "@react-three/drei": "^9.11.0",
     "dayjs": "^1.11.2",
     "emoji-mart": "^5.0.0",
